@@ -4,7 +4,7 @@ class WhatpulseChmodbpf < Formula
   version '1.0'
 
   url 'https://releases.whatpulse.org/latest/macos/install.ChmodBPF.pkg'
-  sha256 'de24ae635bacdabbd785a6427b37b31bf8802b4ee015f6e417f325adad420139'
+  sha256 '739fe63afe689b19de5df1b391ff702fc39f350348c0d05661432bb742e49483'
 
   def install
     # No need to perform any installation steps as it's just a package
