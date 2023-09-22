@@ -2,6 +2,7 @@ class Whatpulse < Formula
   desc 'WhatPulse'
   homepage 'https://whatpulse.org'
   version '5.5.2'
+  depends_on 'whatpulse_chmodbpf'
 
   if Hardware::CPU.arm?
     url 'https://releases.whatpulse.org/latest/macos-arm/whatpulse-mac-arm-latest.dmg'
