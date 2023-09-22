@@ -3,7 +3,7 @@ class WhatpulseChmodbpf < Formula
   homepage 'https://whatpulse.org'
   version '1.0'
 
-  url 'https://releases.whatpulse.org/latest/macos-arm/whatpulse-mac-arm-latest.dmg'
+  url 'https://releases.whatpulse.org/latest/macos/install.ChmodBPF.pkg'
   sha256 'de24ae635bacdabbd785a6427b37b31bf8802b4ee015f6e417f325adad420139'
 
   def install
