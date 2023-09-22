@@ -1,4 +1,4 @@
-class WhatPulseChmodbpf < Formula
+class WhatpulseChmodbpf < Formula
   desc 'WhatPulse ChmodBPF Installer (required for networking stats)'
   homepage 'https://whatpulse.org'
 
