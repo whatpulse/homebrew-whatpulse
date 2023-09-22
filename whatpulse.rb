@@ -22,8 +22,8 @@ class Whatpulse < Formula
   # headless console, and the installer (even the CLI installer) requires a head. :-(
   def post_install
     installer_path = "#{prefix}/WhatPulse-#{version}-Installer.app/Contents/MacOS/WhatPulse-#{version}-Installer"
-    params = '--root /Applications/WhatPulse552 --accept-messages --accept-licenses --confirm-command install'
-    install_command = "#{installer_path} #{params}"
+    params = "--root /Applications/WhatPulse552 --accept-messages --accept-licenses --confirm-command --cache-path #{prefix}/cache"
+    install_command = "#{installer_path} #{params} install"
 
     system(install_command)
   end
