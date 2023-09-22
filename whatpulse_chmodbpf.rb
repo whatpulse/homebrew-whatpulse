@@ -8,6 +8,6 @@ class WhatpulseChmodbpf < Formula
 
   def install
     # Install the ChmodBPF package as root
-    system 'installer', '-pkg', "#{prefix}/install.ChmodBPF.pkg", '-target', '/'
+    system 'installer', '-pkg', 'install.ChmodBPF.pkg', '-target', '/'
   end
 end
