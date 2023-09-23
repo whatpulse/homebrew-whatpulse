@@ -1,4 +1,4 @@
-cask 'whatpulse-chmodbpf' do
+cask 'whatpulse_chmodbpf' do
   desc 'WhatPulse ChmodBPF Installer (required for networking stats)'
   homepage 'https://whatpulse.org'
   version '1.0'
