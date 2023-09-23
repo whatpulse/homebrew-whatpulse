@@ -17,7 +17,7 @@ cask 'whatpulse' do
 
   installer script: {
     executable: "WhatPulse-#{version}-Installer.app/Contents/MacOS/WhatPulse-#{version}-Installer",
-    args: ['--root', '/Applications/WhatPulse552', '--accept-messages', '--accept-licenses', '--confirm-command',
+    args: ['--root', '/Applications/WhatPulse', '--accept-messages', '--accept-licenses', '--confirm-command',
            '--cache-path', "#{staged_path}/cache", 'install']
   }
 end
