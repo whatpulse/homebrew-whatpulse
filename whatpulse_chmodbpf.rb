@@ -1,4 +1,4 @@
-class WhatpulseChmodbpf < Formula
+cask 'whatpulse-chmodbpf' do
   desc 'WhatPulse ChmodBPF Installer (required for networking stats)'
   homepage 'https://whatpulse.org'
   version '1.0'
