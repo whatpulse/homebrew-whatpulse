@@ -25,12 +25,12 @@ cask 'whatpulse' do
 
   installer script: {
     executable: "WhatPulse-#{version}-Installer.app/Contents/MacOS/WhatPulse-#{version}-Installer",
-    args: ['--root', '/Applications/WhatPulse552', '--accept-messages', '--accept-licenses', '--confirm-command',
+    args: ['--root', '/Applications/WhatPulse', '--accept-messages', '--accept-licenses', '--confirm-command',
            '--cache-path', "#{staged_path}/cache", 'install']
   }
 
   uninstall script: {
-    executable: '/Applications/WhatPulse552/WhatPulseMaintenanceTool.app/Contents/MacOS/WhatPulseMaintenanceTool',
-    args: ['remove']
+    executable: '/Applications/WhatPulse/WhatPulseMaintenanceTool.app/Contents/MacOS/WhatPulseMaintenanceTool',
+    args: ['--confirm-command', 'remove', 'com.whatpulse.client']
   }
 end
