@@ -29,7 +29,7 @@ cask 'whatpulse' do
            '--cache-path', "#{staged_path}/cache", 'install']
   }
 
-  uninstaller script: {
+  uninstall script: {
     executable: '/Applications/WhatPulse552/WhatPulseMaintenanceTool.app/Contents/MacOS/WhatPulseMaintenanceTool',
     args: ['remove']
   }
