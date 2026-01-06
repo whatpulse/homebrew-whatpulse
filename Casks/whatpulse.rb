@@ -3,16 +3,16 @@ cask 'whatpulse' do
 
   desc 'WhatPulse'
   homepage 'https://whatpulse.org'
-  version '5.5.2'
+  version '5.11.2'
   depends_on cask: 'whatpulse_chmodbpf'
 
   on_arm do
     url "https://releases.whatpulse.org/latest/macos-arm/whatpulse-mac-arm-#{version}.dmg"
-    sha256 '15e447cfbfa31ea70eefd63433ce5f57f60577069eb0c68c1792a501cbfc3a42'
+    sha256 'd1ac5b35d8c6c1706b69e80600061030c2e23ebe8743472f9303a934ff065aa9'
   end
   on_intel do
     url "https://releases.whatpulse.org/latest/macos/whatpulse-mac-#{version}.dmg"
-    sha256 '857d68a303ca005795cd0a43fbb1d13bed2c9672b740ddc00f2ae9d9a278d86a'
+    sha256 '2660c493c4d916bbd75130517c0b4a2b3f595700aed6fddde4ca2b8f2e025128'
   end
 
   livecheck do
