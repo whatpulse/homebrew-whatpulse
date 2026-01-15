@@ -23,25 +23,21 @@ cask 'whatpulse' do
     regex(/data-version='(\d+(?:[._-]\d+)+)'/i)
   end
 
-  installer manual: true
-
-  postflight do
-    maintenance_tool = '/Applications/WhatPulse/WhatPulseMaintenanceTool.app/Contents/MacOS/WhatPulseMaintenanceTool'
-    update_script = '/Applications/WhatPulse/noninteractive-update.js'
-
-    if File.exist?(maintenance_tool)
-      # Existing installation - update via maintenance tool
-      system_command maintenance_tool,
-                     args: ['update', '--script', update_script, '--accept-licenses', '--default-answer', '--confirm-command'],
-                     print_stderr: true
-    else
-      # Fresh install
-      system_command "#{staged_path}/WhatPulse-#{version}-Installer.app/Contents/MacOS/WhatPulse-#{version}-Installer",
-                     args: ['--root', '/Applications/WhatPulse', '--accept-messages', '--accept-licenses',
-                            '--confirm-command', '--cache-path', "#{staged_path}/cache", 'install'],
-                     print_stderr: true
-    end
-  end
+  installer script: {
+    executable: '/bin/bash',
+    args: [
+      '-c',
+      "MAINTENANCE_TOOL='/Applications/WhatPulse/WhatPulseMaintenanceTool.app/Contents/MacOS/WhatPulseMaintenanceTool'; " \
+      "if [ -x \"$MAINTENANCE_TOOL\" ]; then " \
+      "\"$MAINTENANCE_TOOL\" update --accept-licenses --default-answer --confirm-command; " \
+      "RC=$?; if [ $RC -eq 0 ] || [ $RC -eq 3 ]; then exit 0; else exit $RC; fi; " \
+      "else " \
+      "\"#{staged_path}/WhatPulse-#{version}-Installer.app/Contents/MacOS/WhatPulse-#{version}-Installer\" " \
+      "--root /Applications/WhatPulse --accept-messages --accept-licenses --confirm-command " \
+      "--cache-path \"#{staged_path}/cache\" install; " \
+      'fi'
+    ]
+  }
 
   uninstall script: {
     executable: '/Applications/WhatPulse/WhatPulseMaintenanceTool.app/Contents/MacOS/WhatPulseMaintenanceTool',
