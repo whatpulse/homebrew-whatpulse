@@ -28,19 +28,20 @@ cask 'whatpulse' do
     args: [
       '-c',
       "MAINTENANCE_TOOL='/Applications/WhatPulse/WhatPulseMaintenanceTool.app/Contents/MacOS/WhatPulseMaintenanceTool'; " \
-      "if [ -x \"$MAINTENANCE_TOOL\" ]; then " \
-      "\"$MAINTENANCE_TOOL\" update --accept-licenses --default-answer --confirm-command; " \
-      "RC=$?; if [ $RC -eq 0 ] || [ $RC -eq 3 ]; then exit 0; else exit $RC; fi; " \
-      "else " \
+      'if [ -x "$MAINTENANCE_TOOL" ]; then ' \
+      '"$MAINTENANCE_TOOL" update --accept-licenses --default-answer --confirm-command; ' \
+      'RC=$?; if [ $RC -eq 0 ] || [ $RC -eq 3 ]; then exit 0; else exit $RC; fi; ' \
+      'else ' \
       "\"#{staged_path}/WhatPulse-#{version}-Installer.app/Contents/MacOS/WhatPulse-#{version}-Installer\" " \
-      "--root /Applications/WhatPulse --accept-messages --accept-licenses --confirm-command " \
+      '--root /Applications/WhatPulse --accept-messages --accept-licenses --confirm-command ' \
       "--cache-path \"#{staged_path}/cache\" install; " \
       'fi'
     ]
   }
 
   uninstall script: {
-    executable: '/Applications/WhatPulse/WhatPulseMaintenanceTool.app/Contents/MacOS/WhatPulseMaintenanceTool',
-    args: ['--confirm-command', 'remove', 'com.whatpulse.client']
-  }
+              executable: '/Applications/WhatPulse/WhatPulseMaintenanceTool.app/Contents/MacOS/WhatPulseMaintenanceTool',
+              args: ['--confirm-command', 'remove', 'com.whatpulse.client', 'com.whatpulse.maintenancetool']
+            },
+            delete: '/Applications/WhatPulse'
 end
