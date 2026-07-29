@@ -44,10 +44,10 @@ jobs:
           VERSION="${{ steps.version.outputs.version }}"
 
           echo "Downloading ARM DMG..."
-          curl -L -o whatpulse-arm.dmg "https://releases.whatpulse.org/latest/macos-arm/whatpulse-mac-arm-${VERSION}.dmg"
+          curl -fL -o whatpulse-arm.dmg "https://releases.whatpulse.org/archives/${VERSION}/macos-arm/whatpulse-mac-arm-${VERSION}.dmg"
 
           echo "Downloading Intel DMG..."
-          curl -L -o whatpulse-intel.dmg "https://releases.whatpulse.org/latest/macos/whatpulse-mac-${VERSION}.dmg"
+          curl -fL -o whatpulse-intel.dmg "https://releases.whatpulse.org/archives/${VERSION}/macos/whatpulse-mac-${VERSION}.dmg"
 
           # Verify downloads succeeded (check file size > 0)
           if [ ! -s whatpulse-arm.dmg ]; then
