@@ -1,11 +1,11 @@
 cask 'whatpulse' do
   desc 'WhatPulse'
   homepage 'https://whatpulse.org'
-  version '7.0'
+  version '7.0.1'
   depends_on cask: 'whatpulse_chmodbpf'
 
   url "https://releases.whatpulse.org/archives/#{version}/macos/whatpulse-mac-#{version}.dmg"
-  sha256 '347d2a61874ecb836d224849fa5d398277c56cd1415aae6f1689e9a8106634ae'
+  sha256 'ddad01ed5e4d27c45475128c38bc970308b3b3aa520d323cf2964572c6b385ec'
 
   livecheck do
     url 'https://whatpulse.org/downloads/'
